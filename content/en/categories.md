@@ -5,7 +5,9 @@ position: 7
 category: Methods
 ---
 
-#### List categories
+## Fetching category data
+
+### List categories
 
 _Returns a list of product categories, with offset pagination using `limit` and `page`._
 
@@ -16,7 +18,7 @@ await swell.categories.list({
 });
 ```
 
-#### Get a category
+### Get a category
 
 _Returns a single category._
 

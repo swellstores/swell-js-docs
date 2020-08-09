@@ -5,7 +5,7 @@ position: 8
 category: Methods
 ---
 
-#### Get a cart
+### Get a cart
 
 Retrieve the cart attached to the current session.
 
@@ -15,7 +15,7 @@ _Returns the cart object or `null` if no items have been added yet._
 await swell.cart.get();
 ```
 
-#### Add an item
+### Add an item
 
 Add a single item to the cart. Item options can be either an array of product options or an object with product option name/value pairs.
 
@@ -43,7 +43,7 @@ await swell.cart.addItem({
 });
 ```
 
-#### Update an item
+### Update an item
 
 Update properties of a single cart item by ID.
 
@@ -55,7 +55,7 @@ await swell.cart.updateItem("7d51p8ce72f5542e009fa4c8", {
 });
 ```
 
-#### Update all items
+### Update all items
 
 If you want to update multiple items at once, you can clone `cart.items`, iterate through the items to perform your operation(s), then use this method to replace `cart.items` with your updated array.
 
@@ -81,7 +81,7 @@ await swell.cart.setItems([
 ]);
 ```
 
-#### Remove an item
+### Remove an item
 
 Remove a single item from the cart by ID.
 
@@ -91,7 +91,7 @@ _Returns the updated cart object._
 await swell.cart.removeItem("5c15505200c7d14d851e510f");
 ```
 
-#### Empty the cart
+### Empty the cart
 
 Remove all items from the cart.
 
@@ -101,7 +101,7 @@ _Returns the updated cart object._
 await swell.cart.setItems([]);
 ```
 
-#### Recover a cart
+### Recover a cart
 
 Normally used with an abandoned cart recovery email. The email should have a link to your store with a `checkout_id` identifying the cart that was abandoned. Calling this method will add the cart to the current session and mark it as `recovered`.
 
@@ -111,7 +111,7 @@ _Returns the recovered cart object._
 await swell.cart.recover("878663b2fb4175b128e40de428cd7b0c");
 ```
 
-#### Update cart account info
+### Update cart account info
 
 Update the cart with customer account information.
 
@@ -132,7 +132,7 @@ await swell.cart.update({
 });
 ```
 
-#### Update cart shipping info
+### Update cart shipping info
 
 Update the cart with customer shipping information.
 
@@ -153,7 +153,7 @@ await swell.cart.update({
 });
 ```
 
-#### Update cart billing info
+### Update cart billing info
 
 Update the cart with customer billing information. This method can update both shipping and billing at once if desired.
 
@@ -195,7 +195,7 @@ await swell.cart.update({
 
 > **Note:** In February 2019, PayPal introduced Smart Payment Buttons. Swell's integration uses a previous version named checkout.js, which continues to be supported by PayPal and Swell. <a href="https://www.notion.so/swellstores/Swell-PayPal-integration-examples-e693bcb3cdeb435f91488bb9ed671a3e">More details and examples</a>.
 
-#### Apply a coupon (or gift card) code
+### Apply a coupon (or gift card) code
 
 Use to apply a coupon or gift card code to the cart (works with both so you can have a single input field). A cart can have one coupon and multiple gift card codes applied at once. Codes are not case sensitive.
 
@@ -205,7 +205,7 @@ _Returns the updated cart object if code is valid. Otherwise, returns a validati
 await swell.cart.applyCoupon("SUMMERTIME");
 ```
 
-#### Apply a gift card
+### Apply a gift card
 
 Use to apply a gift card code to the cart. A cart can have multiple gift card codes applied at once. Codes are not case sensitive.
 
@@ -215,7 +215,7 @@ _Returns the updated cart object if code is valid. Otherwise, returns a validati
 await swell.cart.applyGiftcard("BUYS SFX4 BMZH YY7N");
 ```
 
-#### Remove coupon
+### Remove coupon
 
 Use to remove the coupon code from the cart, if one was applied.
 
@@ -223,7 +223,7 @@ Use to remove the coupon code from the cart, if one was applied.
 await swell.cart.removeCouponCode();
 ```
 
-#### Remove a gift card
+### Remove a gift card
 
 Use to remove a gift card from the cart, by passing the ID that was assigned to `cart.giftcards.id`.
 
@@ -231,7 +231,7 @@ Use to remove a gift card from the cart, by passing the ID that was assigned to 
 await swell.cart.removeGiftcard("5c15505200c7d14d851e51af");
 ```
 
-#### Get shipping rates
+### Get shipping rates
 
 A shipment rating contains all available shipping services and their price, based on cart items and the customer's shipping address. The cart must have at least `shipping.country` set to generate a rating.
 
@@ -241,7 +241,7 @@ _Returns an object with shipping services and rates._
 await swell.cart.getShippingRates();
 ```
 
-#### Submit an order
+### Submit an order
 
 When a customer has entered all the information needed to finalize their order, call this method to process their payment and convert the cart to an order.
 
@@ -251,7 +251,7 @@ _Returns the newly created order._
 await swell.cart.submitOrder();
 ```
 
-#### Get order details
+### Get order details
 
 When a cart is submitted, the newly created order will be returned. However, you can use this method if you need to get the order information separately. You can also retrieve an order with a `checkout_id`, allowing you to display order details from an email containing a link like `https://my-store.com/order/{checkout_id}`.
 
@@ -265,7 +265,7 @@ await swell.cart.getOrder();
 await swell.cart.getOrder("878663b2fb4175b128e40de428cd7b0c");
 ```
 
-#### Get checkout settings
+### Get checkout settings
 
 Use to retrieve settings that can affect checkout behavior.
 

@@ -5,7 +5,9 @@ position: 6
 category: Methods
 ---
 
-#### List attributes
+## Fetching attribute data
+
+### List attributes
 
 _Returns a list of product attributes, with offset pagination using `limit` and `page`._
 
@@ -16,7 +18,7 @@ await swell.attributes.list({
 });
 ```
 
-#### Get an attribute
+### Get an attribute
 
 _Returns a single attribute._
 

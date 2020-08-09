@@ -5,17 +5,27 @@ position: 4
 category: Methods
 ---
 
-#### Fetch store settings
+## Store & theme settings
+
+### Fetch settings
 
 _Returns an object representing store settings, and saves it to an internal cache for accessing synchronously._
 
-> **Note:** This must be called before trying to get a setting by path
+> **Note:** This must be called before calling `swell.settings.get()`
 
 ```javascript
-await swell.settings.get();
+await swell.settings.load();
 ```
 
-#### Get setting by path
+### Get all settings
+
+_Returns the entire store settings object._
+
+```javascript
+swell.settings.get();
+```
+
+### Get setting by path
 
 _Returns a value from the store settings object using path notation, with an optional default if the value is undefined._
 
@@ -23,7 +33,9 @@ _Returns a value from the store settings object using path notation, with an opt
 swell.settings.get("colors.primary.dark", "#000000");
 ```
 
-#### Fetch all nav menus
+## Navigation menus
+
+### Fetch all nav menus
 
 _Returns an array containing store navigation menus, and saves it to an internal cache for accessing synchronously._
 
@@ -33,7 +45,7 @@ _Returns an array containing store navigation menus, and saves it to an internal
 await swell.settings.menus();
 ```
 
-#### Get nav menu by ID
+### Get nav menu by ID
 
 _Returns a single navigation menu object._
 
@@ -41,7 +53,9 @@ _Returns a single navigation menu object._
 swell.settings.menus("header");
 ```
 
-#### Fetch payment settings
+## Payment settings
+
+### Fetch payment settings
 
 _Returns an object representing payment settings, and saves it to an internal cache for using with [checkout](#checkout) methods._
 

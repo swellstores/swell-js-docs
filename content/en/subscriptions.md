@@ -1,13 +1,15 @@
 ---
 title: Subscriptions
-description: ""
+description: "Fetch and manage subscriptions associated with the logged in customer's account."
 position: 10
 category: Methods
 ---
 
 Fetch and manage subscriptions associated with the logged in customer's account.
 
-#### Retrieve all subscriptions
+## Fetching subscription data
+
+### List subscriptions
 
 Return a list of active and canceled subscriptions for an account.
 
@@ -17,7 +19,7 @@ _Returns all subscriptions, with offset pagination using `limit` and `page`._
 await swell.subscriptions.list();
 ```
 
-#### Retrieve a subscription
+### Get a subscription
 
 Return a single subscription by ID.
 
@@ -25,7 +27,9 @@ Return a single subscription by ID.
 await swell.subscriptions.get(id);
 ```
 
-#### Create a new subscription
+## Subscription management
+
+### Create a new subscription
 
 Subscribe the customer to a new product for recurring billing.
 
@@ -45,7 +49,7 @@ await swell.subscriptions.create({
 });
 ```
 
-#### Update a subscription
+### Update a subscription
 
 ```javascript
 await swell.subscriptions.update("5c15505200c7d14d851e510f", {
@@ -61,7 +65,7 @@ await swell.subscriptions.update("5c15505200c7d14d851e510f", {
 });
 ```
 
-#### Change a subscription plan
+### Change a subscription plan
 
 ```javascript
 await swell.subscriptions.update("5c15505200c7d14d851e510f", {
@@ -71,7 +75,7 @@ await swell.subscriptions.update("5c15505200c7d14d851e510f", {
 });
 ```
 
-#### Cancel a subscription
+### Cancel a subscription
 
 ```javascript
 await swell.subscriptions.update("5c15505200c7d14d851e510f", {
@@ -79,7 +83,7 @@ await swell.subscriptions.update("5c15505200c7d14d851e510f", {
 });
 ```
 
-#### Add an invoice item
+### Add an invoice item
 
 ```javascript
 await swell.subscriptions.addItem("5c15505200c7d14d851e510f", {
@@ -94,7 +98,7 @@ await swell.subscriptions.addItem("5c15505200c7d14d851e510f", {
 });
 ```
 
-#### Update an invoice item
+### Update an invoice item
 
 ```javascript
 await swell.subscriptions.updateItem("5c15505200c7d14d851e510f", "<item_id>", {
@@ -102,7 +106,7 @@ await swell.subscriptions.updateItem("5c15505200c7d14d851e510f", "<item_id>", {
 });
 ```
 
-#### Update all invoice items
+### Update all invoice items
 
 ```javascript
 await swell.subscriptions.setItems("5c15505200c7d14d851e510e", [
@@ -139,13 +143,13 @@ await swell.subscriptions.setItems("5c15505200c7d14d851e510e", [
 ]);
 ```
 
-#### Remove an item
+### Remove an item
 
 ```javascript
 await swell.subscriptions.removeItem("5c15505200c7d14d851e510f", "<item_id>");
 ```
 
-#### Remove all items
+### Remove all items
 
 ```javascript
 await swell.subscriptions.setItems([]);

@@ -1,13 +1,15 @@
 ---
 title: Account
-description: ""
+description: "Authenticate customers and fetch/manage manage their account data."
 position: 9
 category: Methods
 ---
 
 Authenticate customers and fetch/manage manage their account data.
 
-#### Log in
+## Session management
+
+### Log in
 
 Use to authenticate a customer with their email address and password. If the email/password combo is correct, their account will be added to the session, making customer-specific methods available. This will set `account_logged_in=true` and `guest=false`.
 
@@ -15,7 +17,7 @@ Use to authenticate a customer with their email address and password. If the ema
 await swell.account.login("julia@example.com", "thepassword");
 ```
 
-#### Log out
+### Log out
 
 Use to disconnect the account from the current session. This will set `account_logged_in=false` and `guest=true`.
 
@@ -23,7 +25,7 @@ Use to disconnect the account from the current session. This will set `account_l
 await swell.account.logout();
 ```
 
-#### Get logged in account
+### Get logged in account
 
 Use to get information about the customer currently logged in.
 
@@ -33,7 +35,9 @@ _Returns the account object, or `null` if the customer is not logged in._
 await swell.account.get();
 ```
 
-#### Create an account
+## Account management
+
+### Create an account
 
 Use to create a new customer account and attach it to the current session.
 
@@ -49,7 +53,7 @@ await swell.account.create({
 });
 ```
 
-#### Update the account
+### Update the account
 
 Use to update properties of the currently logged in account.
 
@@ -65,7 +69,7 @@ await swell.account.update({
 });
 ```
 
-#### Send a password reset email
+### Send a password reset email
 
 Use to send a email to the customer with a link to reset their password. If the email address provided doesn't exist in the system, no email will be sent.
 
@@ -77,7 +81,7 @@ await swell.account.recover({
 });
 ```
 
-#### Reset the account password
+### Reset the account password
 
 Use to set the customer's new password. This requires the `reset_key` from the recovery email (see above). The password recovery email should link to your storefront with `reset_key` as a URL parameter that you can pass to this method.
 
@@ -88,7 +92,7 @@ await swell.account.recover({
 });
 ```
 
-#### List addresses
+### List addresses
 
 Use to get a list of addresses on file for the account. These are stored automatically when a non-guest user checks out and chooses to save their information for later.
 
@@ -98,7 +102,7 @@ _Returns all addresses, with offset pagination using `limit` and `page`._
 await swell.account.getAddresses();
 ```
 
-#### Create an address
+### Create an address
 
 Use to add a new address to the account.
 
@@ -117,7 +121,7 @@ await swell.account.createAddress({
 });
 ```
 
-#### Delete an address
+### Delete an address
 
 Use to remove an existing address from the account by ID.
 
@@ -127,7 +131,7 @@ _Returns the deleted address object._
 await swell.account.deleteAddress("5c15505200c7d14d851e510f");
 ```
 
-#### List saved credit cards
+### List saved credit cards
 
 Use to get a list of credit cards on file for the account. These are stored automatically when a non-guest user checks out and chooses to save their information for later.
 
@@ -137,7 +141,7 @@ _Returns all addresses, with offset pagination using `limit` and `page`._
 await swell.account.getCards();
 ```
 
-#### Create a new credit card
+### Create a new credit card
 
 Use to save a tokenized credit card to the account for future use. Credit card tokens can be created using `swell.card.createToken` or Stripe.js.
 
@@ -147,7 +151,7 @@ await swell.account.createCard({
 });
 ```
 
-#### Delete a credit card
+### Delete a credit card
 
 Use to remove a saved credit card from the account by ID.
 
@@ -155,7 +159,7 @@ Use to remove a saved credit card from the account by ID.
 await swell.account.deleteCard("5c15505200c7d14d851e510f");
 ```
 
-#### List account orders
+### List account orders
 
 Return a list of orders placed by a customer.
 
@@ -166,7 +170,7 @@ await swell.account.getOrders({
 });
 ```
 
-#### List account orders with shipments
+### List account orders with shipments
 
 Return a list of orders placed by a customer including shipments with tracking information.
 
