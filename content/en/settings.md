@@ -57,7 +57,7 @@ swell.settings.menus("header");
 
 ### Fetch payment settings
 
-_Returns an object representing payment settings, and saves it to an internal cache for using with [checkout](#checkout) methods._
+_Returns an object representing payment settings, and saves it to an internal cache for using with [checkout](/payment) methods._
 
 ```javascript
 swell.settings.payments();

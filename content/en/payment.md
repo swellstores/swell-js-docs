@@ -9,7 +9,7 @@ category: Methods
 
 Render 3rd party payment elements with settings configured by your Swell store. This method dynamically loads 3rd party libraries such as Stripe, Braintree and PayPal, in order to standardize the way payment details are captured.
 
-Note: when using a card element, it's necessary to <a href="#tokenize-payment-elements">tokenize</a> card details before submitting an order.
+Note: when using a card element, it's necessary to <a href="#tokenize-elements">tokenize</a> card details before submitting an order.
 
 ### Stripe
 
