@@ -2,7 +2,7 @@
 title: Setup
 description: ""
 position: 2
-category: Guide
+category: Getting started
 ---
 
 The library can be used in any bundled JavaScript application, in server or client contexts.
@@ -28,7 +28,7 @@ npm install swell-js
   </code-block>
 </code-group>
 
-## Authorization
+## Initialization
 
 The client uses your store ID and public key for authorization. You can find these in your dashboard under _Settings > API_.
 

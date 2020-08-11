@@ -2,7 +2,7 @@
 title: Introduction
 description: ""
 position: 1
-category: ""
+category: "Getting started"
 features:
   - Fetch products, categories, store settings, nav menus, and custom content
   - Create, recover, and update shopping carts
