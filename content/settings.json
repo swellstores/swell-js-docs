@@ -1,10 +1,9 @@
 {
   "title": "Swell frontend API documentation",
-  "url": "https://github.com/swellstores/swell-js",
+  "url": "swellstores/swell-js-docs",
   "logo": {
     "light": "/logo-light.svg",
     "dark": "/logo-dark.svg"
   },
-  "github": "https://github.com/swellstores/swell-js",
   "twitter": "@swellcommerce"
 }
