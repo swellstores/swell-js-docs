@@ -2,8 +2,8 @@
   "title": "Swell frontend API documentation",
   "url": "swellstores/swell-js-docs",
   "logo": {
-    "light": "/logo-light.svg",
-    "dark": "/logo-dark.svg"
+    "light": "logo-light.svg",
+    "dark": "logo-dark.svg"
   },
   "twitter": "@swellcommerce"
 }
