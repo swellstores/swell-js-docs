@@ -28,8 +28,8 @@ await swell.cart.addItem({
   quantity: 1,
   options: [
     { name: "Size", value: "S" },
-    { name: "Color", value: "Midnight blue" }
-  ]
+    { name: "Color", value: "Midnight blue" },
+  ],
 });
 
 // Options as object
@@ -38,8 +38,8 @@ await swell.cart.addItem({
   quantity: 1,
   options: {
     Size: "S",
-    Color: "Midnight blue"
-  }
+    Color: "Midnight blue",
+  },
 });
 ```
 
@@ -51,7 +51,7 @@ _Returns the updated cart object._
 
 ```javascript
 await swell.cart.updateItem("7d51p8ce72f5542e009fa4c8", {
-  quantity: 2
+  quantity: 2,
 });
 ```
 
@@ -66,18 +66,18 @@ await swell.cart.setItems([
   {
     id: "5c15505200c7d14d851e510f",
     quantity: 2,
-    options: [{ id: "Color", value: "Midnight blue" }]
+    options: [{ id: "Color", value: "Midnight blue" }],
   },
   {
     id: "5c15505200c7d14d851e510g",
     quantity: 3,
-    options: [{ id: "Color", value: "Ivory" }]
+    options: [{ id: "Color", value: "Ivory" }],
   },
   {
     id: "5c15505200c7d14d851e510h",
     quantity: 4,
-    options: [{ id: "Color", value: "Bright red" }]
-  }
+    options: [{ id: "Color", value: "Bright red" }],
+  },
 ]);
 ```
 
@@ -113,9 +113,9 @@ await swell.cart.recover("878663b2fb4175b128e40de428cd7b0c");
 
 ### Update cart account info
 
-Update the cart with customer account information.
+Add customer account information to the cart, either for checking out as a guest or setting up a full customer account with password before submitting the order.
 
-An account is assigned to a cart by email address.
+Accounts are assigned to a cart by email address.
 
 - If the account has no password set, it's considered a guest checkout and the cart will have the property `guest=true`.
 - If the account has a password set, the cart will have the property `account_logged_in=false`. You can use this to prompt the user to <a href="#login">log in</a> to continue. Once the account is logged in, `account_logged_in` will be `true`.
@@ -127,8 +127,8 @@ await swell.cart.update({
   account: {
     email: "julia@example.com",
     email_optin: true, // Optional; indicates the customer has consented to receive marketing emails
-    password: "thepassword" // Optional; sets the customer's password if one doesn't exist yet
-  }
+    password: "thepassword", // Optional; sets the customer's password if one doesn't exist yet
+  },
 });
 ```
 
@@ -148,8 +148,8 @@ await swell.cart.update({
     state: "KS",
     zip: "67526",
     country: "United States",
-    phone: "620-564-3737"
-  }
+    phone: "620-564-3737",
+  },
 });
 ```
 
@@ -173,23 +173,23 @@ await swell.cart.update({
     // Paying with credit card
     card: {
       // Token from swell.card.createToken() or Stripe.js
-      token: "tok_1H0Qu92eZvKYlo2CsKGk6..."
+      token: "tok_1H0Qu92eZvKYlo2CsKGk6...",
     },
     // Paying with PayPal
     paypal: {
       payer_id: "...",
-      payment_id: "..."
+      payment_id: "...",
     },
     // Paying with Amazon Pay
     amazon: {
       access_token: "...",
-      order_reference_id: "..."
+      order_reference_id: "...",
     },
     // Paying with Affirm
     affirm: {
-      checkout_token: "..."
-    }
-  }
+      checkout_token: "...",
+    },
+  },
 });
 ```
 
