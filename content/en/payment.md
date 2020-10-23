@@ -239,3 +239,31 @@ Returns `true` if the card CVC code is valid, otherwise `false`.
 swell.card.validateCVC("321"); // => true
 swell.card.validateCVC("1"); // => false
 ```
+
+### Add to cart
+
+After generating a card token, update the cart billing details and it will automatically be handled according to payment settings.
+
+Note: when using a payment element instead of direct tokenization, the cart automatically updated.
+
+```javascript
+const response = await swell.card.createToken({
+  number: "4242 4242 4242 4242",
+  exp_month: 1,
+  exp_year: 2099,
+  cvc: 321,
+  // Note: some payment gateways may require a Swell `account_id` and `billing` for card verification (Braintree)
+  account_id: "5c15505200c7d14d851e510f",
+  billing: {
+    address1: "1 Main Dr.",
+    zip: 90210
+    // Other standard billing fields optional
+  }
+});
+
+await swell.cart.update({
+  billing: {
+    card: response
+  }
+});
+```
