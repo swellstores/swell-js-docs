@@ -242,9 +242,9 @@ swell.card.validateCVC("1"); // => false
 
 ### Add to cart
 
-After generating a card token, update the cart billing details and it will be handled according to payment settings when the [order is submitted](/docs/js/#submit-an-order).
+After generating a card token, update the cart billing details and it will be handled according to payment settings when the [order is submitted](/cart/#submit-an-order).
 
-Note: when using a [payment element](#payment-elements) instead of direct tokenization, the cart will be automatically updated.
+Note: when using a [payment element](/payment/#payment-elements) instead of direct tokenization, the cart will be automatically updated.
 
 ```javascript
 const response = await swell.card.createToken({
