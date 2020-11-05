@@ -34,6 +34,24 @@ swell.payment.createElements({
         }
       }
     },
+    onChange: event => {
+      // optional, called when the Element value changes
+    },
+    onReady: event => {
+      // optional, called when the Element is fully rendered
+    },
+    onFocus: event => {
+      // optional, called when the Element gains focus
+    },
+    onBlur: event => {
+      // optional, called when the Element loses focus
+    },
+    onEscape: event => {
+      // optional, called when the escape key is pressed within an Element
+    },
+    onClick: event => {
+      // optional, called when the Element is clicked
+    },
     onSuccess: result => {
       // optional, called on card payment success
     },
@@ -71,6 +89,24 @@ swell.payment.createElements({
     },
     cardCvc: {
       elementId: "#card-expiry-id" // default: #cardCvc-element
+    },
+    onChange: event => {
+      // optional, called when the Element value changes
+    },
+    onReady: event => {
+      // optional, called when the Element is fully rendered
+    },
+    onFocus: event => {
+      // optional, called when the Element gains focus
+    },
+    onBlur: event => {
+      // optional, called when the Element loses focus
+    },
+    onEscape: event => {
+      // optional, called when the escape key is pressed within an Element
+    },
+    onClick: event => {
+      // optional, called when the Element is clicked
     },
     onSuccess: result => {
       // optional, called on card payment success
