@@ -99,7 +99,7 @@ Use to get a list of addresses on file for the account. These are stored automat
 _Returns all addresses, with offset pagination using `limit` and `page`._
 
 ```javascript
-await swell.account.getAddresses();
+await swell.account.listAddresses();
 ```
 
 ### Create an address
