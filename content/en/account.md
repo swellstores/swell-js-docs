@@ -138,7 +138,7 @@ Use to get a list of credit cards on file for the account. These are stored auto
 _Returns all addresses, with offset pagination using `limit` and `page`._
 
 ```javascript
-await swell.account.getCards();
+await swell.account.listCards();
 ```
 
 ### Create a new credit card
@@ -164,10 +164,18 @@ await swell.account.deleteCard("5c15505200c7d14d851e510f");
 Return a list of orders placed by a customer.
 
 ```javascript
-await swell.account.getOrders({
+await swell.account.listOrders({
   limit: 10,
   page: 2
 });
+```
+
+### Get an account order
+
+Return a single account order by ID.
+
+```javascript
+await swell.account.getOrder("5fab561fb4a4d83c776f45bd");
 ```
 
 ### List account orders with shipments
@@ -177,7 +185,8 @@ Return a list of orders placed by a customer including shipments with tracking i
 _Returns all orders, with offset pagination using `limit` and `page`._
 
 ```javascript
-await swell.account.getOrders({
+await swell.account.listOrders({
   expand: "shipments"
 });
 ```
+
