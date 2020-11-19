@@ -118,7 +118,7 @@ Add customer account information to the cart, either for checking out as a guest
 Accounts are assigned to a cart by email address.
 
 - If the account has no password set, it's considered a guest checkout and the cart will have the property `guest=true`.
-- If the account has a password set, the cart will have the property `account_logged_in=false`. You can use this to prompt the user to <a href="#login">log in</a> to continue. Once the account is logged in, `account_logged_in` will be `true`.
+- If the account has a password set, the cart will have the property `account_logged_in=false`. You can use this to prompt the user to <a href="/docs/js/account#log-in">log in</a> to continue. Once the account is logged in, `account_logged_in` will be `true`.
 
 _Returns the updated cart object._
 
