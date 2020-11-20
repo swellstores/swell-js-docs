@@ -9,7 +9,7 @@ category: Methods
 
 Render 3rd party payment elements with settings configured by your Swell store. This method dynamically loads 3rd party libraries such as Stripe, Braintree and PayPal, in order to standardize the way payment details are captured.
 
-Note: when using a card element, it's necessary to <a href="/docs/js/payment#direct-credit-card-tokenization">tokenize</a> card details before submitting an order.
+Note: when using a card element, it's necessary to <a href="#tokenize-elements">tokenize</a> card details before submitting an order.
 
 ### Stripe
 
@@ -30,35 +30,35 @@ swell.payment.createElements({
       style: {
         base: {
           fontWeight: 500,
-          fontSize: "16px",
-        },
-      },
+          fontSize: "16px"
+        }
+      }
     },
-    onChange: (event) => {
+    onChange: event => {
       // optional, called when the Element value changes
     },
-    onReady: (event) => {
+    onReady: event => {
       // optional, called when the Element is fully rendered
     },
-    onFocus: (event) => {
+    onFocus: event => {
       // optional, called when the Element gains focus
     },
-    onBlur: (event) => {
+    onBlur: event => {
       // optional, called when the Element loses focus
     },
-    onEscape: (event) => {
+    onEscape: event => {
       // optional, called when the escape key is pressed within an Element
     },
-    onClick: (event) => {
+    onClick: event => {
       // optional, called when the Element is clicked
     },
-    onSuccess: (result) => {
+    onSuccess: result => {
       // optional, called on card payment success
     },
-    onError: (error) => {
+    onError: error => {
       // optional, called on card payment error
-    },
-  },
+    }
+  }
 });
 ```
 
@@ -79,42 +79,42 @@ swell.payment.createElements({
         style: {
           base: {
             fontWeight: 500,
-            fontSize: "16px",
-          },
-        },
-      },
+            fontSize: "16px"
+          }
+        }
+      }
     },
     cardExpiry: {
-      elementId: "#card-expiry-id", // default: #cardExpiry-element
+      elementId: "#card-expiry-id" // default: #cardExpiry-element
     },
     cardCvc: {
-      elementId: "#card-expiry-id", // default: #cardCvc-element
+      elementId: "#card-expiry-id" // default: #cardCvc-element
     },
-    onChange: (event) => {
+    onChange: event => {
       // optional, called when the Element value changes
     },
-    onReady: (event) => {
+    onReady: event => {
       // optional, called when the Element is fully rendered
     },
-    onFocus: (event) => {
+    onFocus: event => {
       // optional, called when the Element gains focus
     },
-    onBlur: (event) => {
+    onBlur: event => {
       // optional, called when the Element loses focus
     },
-    onEscape: (event) => {
+    onEscape: event => {
       // optional, called when the escape key is pressed within an Element
     },
-    onClick: (event) => {
+    onClick: event => {
       // optional, called when the Element is clicked
     },
-    onSuccess: (result) => {
+    onSuccess: result => {
       // optional, called on card payment success
     },
-    onError: (error) => {
+    onError: error => {
       // optional, called on card payment error
-    },
-  },
+    }
+  }
 });
 ```
 
@@ -137,7 +137,7 @@ swell.payment.createElements({
       color: "blue",
       shape: "rect",
       label: "buynow",
-      tagline: false,
+      tagline: false
     },
     onSuccess: (data, actions) => {
       // optional, called on payment success
@@ -145,10 +145,10 @@ swell.payment.createElements({
     onCancel: () => {
       // optional, called on payment cancel
     },
-    onError: (error) => {
+    onError: error => {
       // optional, called on payment error
-    },
-  },
+    }
+  }
 });
 ```
 
@@ -191,7 +191,7 @@ form.addEventListener('submit', function(event) {
 
 ## Direct credit card tokenization
 
-If a <a href="/docs/js/payment#payment-elements">payment element</a> isn't available for your credit card processor, you can tokenize credit card information directly.
+If a <a href="#payment-elements">payment element</a> isn't available for your credit card processor, you can tokenize credit card information directly.
 
 ### Create a card token
 
@@ -207,9 +207,9 @@ const response = await swell.card.createToken({
   account_id: "5c15505200c7d14d851e510f",
   billing: {
     address1: "1 Main Dr.",
-    zip: 90210,
+    zip: 90210
     // Other standard billing fields optional
-  },
+  }
 });
 ```
 
@@ -292,14 +292,14 @@ const response = await swell.card.createToken({
   account_id: "5c15505200c7d14d851e510f",
   billing: {
     address1: "1 Main Dr.",
-    zip: 90210,
+    zip: 90210
     // Other standard billing fields optional
-  },
+  }
 });
 
 await swell.cart.update({
   billing: {
-    card: response,
-  },
+    card: response
+  }
 });
 ```
