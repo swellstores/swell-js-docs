@@ -1,6 +1,6 @@
 ---
 title: Payment
-description: ""
+description: ''
 position: 11
 category: Methods
 ---
@@ -9,28 +9,28 @@ category: Methods
 
 Render 3rd party payment elements with settings configured by your Swell store. This method dynamically loads 3rd party libraries such as Stripe, Braintree and PayPal, in order to standardize the way payment details are captured.
 
-Note: when using a card element, it's necessary to <a href="#tokenize-elements">tokenize</a> card details before submitting an order.
+Note: when using a card element, it's necessary to <a href="/docs/js/payment#direct-credit-card-tokenization">tokenize</a> card details before submitting an order.
 
 ### Stripe
 
-Render Stripe elements to capture credit card information. You can choose between a unified [card element](https://stripe.com/docs/js/elements_object/create_element?type=card "card element") or separate elements ([cardNumber](https://stripe.com/docs/js/elements_object/create_element?type=cardNumber "cardNumber"), [cardExpiry](https://stripe.com/docs/js/elements_object/create_element?type=cardExpiry "cardExpiry"), [cardCvc](https://stripe.com/docs/js/elements_object/create_element?type=cardCvc "cardCvc")).
+Render Stripe elements to capture credit card information. You can choose between a unified [card element](https://stripe.com/docs/js/elements_object/create_element?type=card 'card element') or separate elements ([cardNumber](https://stripe.com/docs/js/elements_object/create_element?type=cardNumber 'cardNumber'), [cardExpiry](https://stripe.com/docs/js/elements_object/create_element?type=cardExpiry 'cardExpiry'), [cardCvc](https://stripe.com/docs/js/elements_object/create_element?type=cardCvc 'cardCvc')).
 
 #### Render a Stripe card element
 
 ```javascript
-import swell from "swell-js";
+import swell from 'swell-js'
 
-swell.init("my-store", "pk_...");
+swell.init('my-store', 'pk_...')
 
 swell.payment.createElements({
   card: {
-    elementId: "#card-element-id", // default: #card-element
+    elementId: '#card-element-id', // default: #card-element
     options: {
       // options are passed as a direct argument to stripe.js
       style: {
         base: {
           fontWeight: 500,
-          fontSize: "16px"
+          fontSize: '16px'
         }
       }
     },
@@ -59,36 +59,36 @@ swell.payment.createElements({
       // optional, called on card payment error
     }
   }
-});
+})
 ```
 
 #### Render other Stripe elements
 
 ```javascript
-import swell from "swell-js";
+import swell from 'swell-js'
 
-swell.init("my-store", "pk_...");
+swell.init('my-store', 'pk_...')
 
 swell.payment.createElements({
   card: {
     separateElements: true, // required for separate elements
     cardNumber: {
-      elementId: "#card-number-id", // default: #cardNumber-element
+      elementId: '#card-number-id', // default: #cardNumber-element
       options: {
         // options are passed as a direct argument to stripe.js
         style: {
           base: {
             fontWeight: 500,
-            fontSize: "16px"
+            fontSize: '16px'
           }
         }
       }
     },
     cardExpiry: {
-      elementId: "#card-expiry-id" // default: #cardExpiry-element
+      elementId: '#card-expiry-id' // default: #cardExpiry-element
     },
     cardCvc: {
-      elementId: "#card-expiry-id" // default: #cardCvc-element
+      elementId: '#card-expiry-id' // default: #cardCvc-element
     },
     onChange: event => {
       // optional, called when the Element value changes
@@ -115,28 +115,28 @@ swell.payment.createElements({
       // optional, called on card payment error
     }
   }
-});
+})
 ```
 
-Note: see Stripe documentation for [options](https://stripe.com/docs/js/elements_object/create_element?type=card#elements_create-options "options") and [customization](https://stripe.com/docs/js/appendix/style?type=card "customization").
+Note: see Stripe documentation for [options](https://stripe.com/docs/js/elements_object/create_element?type=card#elements_create-options 'options') and [customization](https://stripe.com/docs/js/appendix/style?type=card 'customization').
 
 ### PayPal button
 
 Render a PayPal checkout button.
 
 ```javascript
-import swell from "swell-js";
+import swell from 'swell-js'
 
-swell.init("my-store", "pk_...");
+swell.init('my-store', 'pk_...')
 
 swell.payment.createElements({
   paypal: {
-    elementId: "#element-id", // default: #paypal-button
+    elementId: '#element-id', // default: #paypal-button
     style: {
-      layout: "horizontal", // optional
-      color: "blue",
-      shape: "rect",
-      label: "buynow",
+      layout: 'horizontal', // optional
+      color: 'blue',
+      shape: 'rect',
+      label: 'buynow',
       tagline: false
     },
     onSuccess: (data, actions) => {
@@ -149,7 +149,7 @@ swell.payment.createElements({
       // optional, called on payment error
     }
   }
-});
+})
 ```
 
 Note: see [PayPal documentation](https://developer.paypal.com/docs/checkout/integration-features/customize-button/) for details on available style parameters.
@@ -191,7 +191,7 @@ form.addEventListener('submit', function(event) {
 
 ## Direct credit card tokenization
 
-If a <a href="#payment-elements">payment element</a> isn't available for your credit card processor, you can tokenize credit card information directly.
+If a <a href="/docs/js/payment#payment-elements">payment element</a> isn't available for your credit card processor, you can tokenize credit card information directly.
 
 ### Create a card token
 
@@ -199,18 +199,18 @@ Returns an object representing the card token. Pass the token ID to a cart's `bi
 
 ```javascript
 const response = await swell.card.createToken({
-  number: "4242 4242 4242 4242",
+  number: '4242 4242 4242 4242',
   exp_month: 1,
   exp_year: 2099,
   cvc: 321,
   // Note: some payment gateways may require a Swell `account_id` and `billing` for card verification (Braintree)
-  account_id: "5c15505200c7d14d851e510f",
+  account_id: '5c15505200c7d14d851e510f',
   billing: {
-    address1: "1 Main Dr.",
+    address1: '1 Main Dr.',
     zip: 90210
     // Other standard billing fields optional
   }
-});
+})
 ```
 
 #### Successful token response
@@ -253,8 +253,8 @@ const response = await swell.card.createToken({
 Returns `true` if the card number is valid, otherwise `false`.
 
 ```javascript
-swell.card.validateNumber("4242 4242 4242 4242"); // => true
-swell.card.validateNumber("1111"); // => false
+swell.card.validateNumber('4242 4242 4242 4242') // => true
+swell.card.validateNumber('1111') // => false
 ```
 
 #### Card expiry
@@ -262,9 +262,9 @@ swell.card.validateNumber("1111"); // => false
 Returns `true` if the card expiration date is valid, otherwise `false`.
 
 ```javascript
-swell.card.validateExpry("1/29"); // => true
-swell.card.validateExpry("1/2099"); // => true
-swell.card.validateExpry("9/99"); // => false
+swell.card.validateExpry('1/29') // => true
+swell.card.validateExpry('1/2099') // => true
+swell.card.validateExpry('9/99') // => false
 ```
 
 #### CVC code
@@ -272,8 +272,8 @@ swell.card.validateExpry("9/99"); // => false
 Returns `true` if the card CVC code is valid, otherwise `false`.
 
 ```javascript
-swell.card.validateCVC("321"); // => true
-swell.card.validateCVC("1"); // => false
+swell.card.validateCVC('321') // => true
+swell.card.validateCVC('1') // => false
 ```
 
 ### Add to cart
@@ -284,22 +284,22 @@ Note: when using a [payment element](/payment/#payment-elements) instead of dire
 
 ```javascript
 const response = await swell.card.createToken({
-  number: "4242 4242 4242 4242",
+  number: '4242 4242 4242 4242',
   exp_month: 1,
   exp_year: 2099,
   cvc: 321,
   // Note: some payment gateways may require a Swell `account_id` and `billing` for card verification (Braintree)
-  account_id: "5c15505200c7d14d851e510f",
+  account_id: '5c15505200c7d14d851e510f',
   billing: {
-    address1: "1 Main Dr.",
+    address1: '1 Main Dr.',
     zip: 90210
     // Other standard billing fields optional
   }
-});
+})
 
 await swell.cart.update({
   billing: {
     card: response
   }
-});
+})
 ```

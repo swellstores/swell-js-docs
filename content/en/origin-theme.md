@@ -1,6 +1,6 @@
 ---
 title: Storefront theme
-description: ""
+description: ''
 position: 4
 category: Examples
 ---

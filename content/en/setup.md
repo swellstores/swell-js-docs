@@ -1,6 +1,6 @@
 ---
 title: Setup
-description: ""
+description: ''
 position: 2
 category: Getting started
 ---
@@ -33,7 +33,7 @@ npm install swell-js
 The client uses your store ID and public key for authorization. You can find these in your dashboard under _Settings > API_.
 
 ```javascript
-swell.init("<store-id>", "<public_key>");
+swell.init('<store-id>', '<public_key>')
 ```
 
 > **Note**: `swell.auth()` was renamed to `swell.init()` in v1.3.0.

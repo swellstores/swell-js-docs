@@ -1,6 +1,6 @@
 ---
 title: Account
-description: "Authenticate customers and fetch/manage manage their account data."
+description: 'Authenticate customers and fetch/manage manage their account data.'
 position: 9
 category: Methods
 ---
@@ -14,7 +14,7 @@ Authenticate customers and fetch/manage manage their account data.
 Use to authenticate a customer with their email address and password. If the email/password combo is correct, their account will be added to the session, making customer-specific methods available. This will set `account_logged_in=true` and `guest=false`.
 
 ```javascript
-await swell.account.login("julia@example.com", "thepassword");
+await swell.account.login('julia@example.com', 'thepassword')
 ```
 
 ### Log out
@@ -22,7 +22,7 @@ await swell.account.login("julia@example.com", "thepassword");
 Use to disconnect the account from the current session. This will set `account_logged_in=false` and `guest=true`.
 
 ```javascript
-await swell.account.logout();
+await swell.account.logout()
 ```
 
 ### Get logged in account
@@ -32,7 +32,7 @@ Use to get information about the customer currently logged in.
 _Returns the account object, or `null` if the customer is not logged in._
 
 ```javascript
-await swell.account.get();
+await swell.account.get()
 ```
 
 ## Account management
@@ -45,12 +45,12 @@ _Returns the newly created account object._
 
 ```javascript
 await swell.account.create({
-  email: "julia@example.com",
-  first_name: "Julia", // Optional
-  last_name: "Sanchez", // Optional
+  email: 'julia@example.com',
+  first_name: 'Julia', // Optional
+  last_name: 'Sanchez', // Optional
   email_optin: true, // Optional
-  password: "thepassword" // Optional
-});
+  password: 'thepassword' // Optional
+})
 ```
 
 ### Update the account
@@ -61,12 +61,12 @@ _Returns the updated account object if successful. Otherwise, returns a validati
 
 ```javascript
 await swell.account.update({
-  email: "julia@anotherexample.com",
-  first_name: "Julia", // Optional
-  last_name: "Sanchez", // Optional
+  email: 'julia@anotherexample.com',
+  first_name: 'Julia', // Optional
+  last_name: 'Sanchez', // Optional
   email_optin: true, // Optional
-  password: "thepassword" // Optional
-});
+  password: 'thepassword' // Optional
+})
 ```
 
 ### Send a password reset email
@@ -77,8 +77,8 @@ _Returns a value indicating success in either case._
 
 ```javascript
 await swell.account.recover({
-  email: "julia@example.com"
-});
+  email: 'julia@example.com'
+})
 ```
 
 ### Reset the account password
@@ -87,9 +87,9 @@ Use to set the customer's new password. This requires the `reset_key` from the r
 
 ```javascript
 await swell.account.recover({
-  reset_key: "e42e66fc7e3f00e9e179w20ad1841146",
-  password: "thenewpassword"
-});
+  reset_key: 'e42e66fc7e3f00e9e179w20ad1841146',
+  password: 'thenewpassword'
+})
 ```
 
 ### List addresses
@@ -99,7 +99,7 @@ Use to get a list of addresses on file for the account. These are stored automat
 _Returns all addresses, with offset pagination using `limit` and `page`._
 
 ```javascript
-await swell.account.listAddresses();
+await swell.account.listAddresses()
 ```
 
 ### Create an address
@@ -110,15 +110,15 @@ _Returns the newly created address object._
 
 ```javascript
 await swell.account.createAddress({
-  name: "Julia Sanchez",
-  address1: "Apartment 16B",
-  address2: "2602 Pinewood Drive",
-  city: "Jacksonville",
-  state: "FL",
-  zip: "32216",
-  country: "United States",
-  phone: "904-504-4760"
-});
+  name: 'Julia Sanchez',
+  address1: 'Apartment 16B',
+  address2: '2602 Pinewood Drive',
+  city: 'Jacksonville',
+  state: 'FL',
+  zip: '32216',
+  country: 'United States',
+  phone: '904-504-4760'
+})
 ```
 
 ### Delete an address
@@ -128,7 +128,7 @@ Use to remove an existing address from the account by ID.
 _Returns the deleted address object._
 
 ```javascript
-await swell.account.deleteAddress("5c15505200c7d14d851e510f");
+await swell.account.deleteAddress('5c15505200c7d14d851e510f')
 ```
 
 ### List saved credit cards
@@ -138,7 +138,7 @@ Use to get a list of credit cards on file for the account. These are stored auto
 _Returns all addresses, with offset pagination using `limit` and `page`._
 
 ```javascript
-await swell.account.listCards();
+await swell.account.listCards()
 ```
 
 ### Create a new credit card
@@ -147,8 +147,8 @@ Use to save a tokenized credit card to the account for future use. Credit card t
 
 ```javascript
 await swell.account.createCard({
-  token: "..."
-});
+  token: '...'
+})
 ```
 
 ### Delete a credit card
@@ -156,7 +156,7 @@ await swell.account.createCard({
 Use to remove a saved credit card from the account by ID.
 
 ```javascript
-await swell.account.deleteCard("5c15505200c7d14d851e510f");
+await swell.account.deleteCard('5c15505200c7d14d851e510f')
 ```
 
 ### List account orders
@@ -167,7 +167,7 @@ Return a list of orders placed by a customer.
 await swell.account.listOrders({
   limit: 10,
   page: 2
-});
+})
 ```
 
 ### Get an account order
@@ -175,7 +175,7 @@ await swell.account.listOrders({
 Return a single account order by ID.
 
 ```javascript
-await swell.account.getOrder("5fab561fb4a4d83c776f45bd");
+await swell.account.getOrder('5fab561fb4a4d83c776f45bd')
 ```
 
 ### List account orders with shipments
@@ -186,7 +186,6 @@ _Returns all orders, with offset pagination using `limit` and `page`._
 
 ```javascript
 await swell.account.listOrders({
-  expand: "shipments"
-});
+  expand: 'shipments'
+})
 ```
-
