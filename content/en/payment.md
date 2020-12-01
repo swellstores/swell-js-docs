@@ -9,7 +9,7 @@ category: Methods
 
 Render 3rd party payment elements with settings configured by your Swell store. This method dynamically loads 3rd party libraries such as Stripe, Braintree and PayPal, in order to standardize the way payment details are captured.
 
-Note: when using a card element, it's necessary to <a href="/docs/js/payment#direct-credit-card-tokenization">tokenize</a> card details before submitting an order.
+Note: when using a card element, it's necessary to <a href="payment#direct-credit-card-tokenization">tokenize</a> card details before submitting an order.
 
 ### Stripe
 
@@ -191,7 +191,7 @@ form.addEventListener('submit', function(event) {
 
 ## Direct credit card tokenization
 
-If a <a href="/docs/js/payment#payment-elements">payment element</a> isn't available for your credit card processor, you can tokenize credit card information directly.
+If a <a href="payment#payment-elements">payment element</a> isn't available for your credit card processor, you can tokenize credit card information directly.
 
 ### Create a card token
 
