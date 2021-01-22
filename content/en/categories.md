@@ -5,7 +5,7 @@ position: 7
 category: Methods
 ---
 
-## Fetching category data
+Retrieve product categories to display in a storefront.
 
 ### List categories
 
@@ -29,3 +29,5 @@ await swell.categories.get('mens-shirts')
 // By ID
 await swell.categories.get('5c15505200c7d14d851e510g')
 ```
+
+<br />

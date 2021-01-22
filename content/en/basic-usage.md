@@ -5,7 +5,7 @@ position: 3
 category: Examples
 ---
 
-If a code example has the `await` prefix, the method returns a promise. All other methods are synchronous. We're using ES6 async/await syntax here, but you can use regular Promises too.
+Code examples use the `await` prefix when the method returns a promise. All other methods are synchronous. We're using ES6 async/await syntax here, but you can use regular Promises too.
 
 ```javascript
 import swell from 'swell-js'
@@ -20,3 +20,5 @@ await swell.products.list({
   page: 1
 })
 ```
+
+<br />

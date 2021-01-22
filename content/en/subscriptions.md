@@ -1,13 +1,11 @@
 ---
 title: Subscriptions
-description: "Fetch and manage subscriptions associated with the logged in customer's account."
+description: "Retrieve and manage subscriptions associated with the logged in customer's account."
 position: 10
 category: Methods
 ---
 
-Fetch and manage subscriptions associated with the logged in customer's account.
-
-## Fetching subscription data
+Manage subscriptions associated with the [logged in](/account) customer's account.
 
 ### List subscriptions
 
@@ -154,3 +152,5 @@ await swell.subscriptions.removeItem('5c15505200c7d14d851e510f', '<item_id>')
 ```javascript
 await swell.subscriptions.setItems([])
 ```
+
+<br />

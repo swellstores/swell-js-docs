@@ -5,7 +5,7 @@ position: 9
 category: Methods
 ---
 
-Authenticate customers and fetch/manage manage their account data.
+Authenticate customers, fetch and manage manage their account data.
 
 ## Session management
 
@@ -189,3 +189,5 @@ await swell.account.listOrders({
   expand: 'shipments'
 })
 ```
+
+<br />

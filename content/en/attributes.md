@@ -5,7 +5,7 @@ position: 6
 category: Methods
 ---
 
-## Fetching attribute data
+Retrieve product attributes to display in a storefront.
 
 ### List attributes
 
@@ -29,3 +29,5 @@ await swell.attributes.get('color')
 // By ID
 await swell.attributes.get('5c15505200c7d14d851e510g')
 ```
+
+<br />

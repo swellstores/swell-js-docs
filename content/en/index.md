@@ -12,7 +12,7 @@ features:
   - Format prices in the store's currency
 ---
 
-Swell.js is a universal JavaScript SDK for Swell's Frontend API, providing helper methods for common data and actions needed to create web storefronts and checkout flows.
+Swell.js is a universal JavaScript SDK for Swell's Frontend API, providing helper methods for common data and actions needed to create storefronts and checkout flows.
 
 <alert type="success">
 
@@ -23,3 +23,5 @@ The SDK implements a subset of operations available in the [Backend API](https:/
 ## Features
 
 <list :items="features"></list>
+
+<br />

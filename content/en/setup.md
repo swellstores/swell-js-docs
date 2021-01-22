@@ -51,3 +51,5 @@ const options = {
 
 swell.init('<store-id>', '<public_key>', options)
 ```
+
+<br />

@@ -283,6 +283,7 @@ _Returns object with:_
 - `privacy_policy` - Store privacy policy
 - `theme` - Checkout style settings
 - `countries` - List of country codes that have shipping zones configured
+- `currencies` - List of currencies enabled by the store when using multi-currency
 - `payment_methods` - List of active payment methods
 - `coupons` - Indicates whether the store has coupons
 - `giftcards` - Indicates whether the store has gift cards
@@ -290,3 +291,5 @@ _Returns object with:_
 ```javascript
 await swell.cart.getSettings()
 ```
+
+<br />
