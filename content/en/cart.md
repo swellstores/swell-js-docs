@@ -195,7 +195,7 @@ await swell.cart.update({
 
 ### Update cart metadata
 
-Use the `metadata` object to store arbitrary values on a cart. As opposed to storing custom fields with the <a href="https://swell.store/docs/api/">backend API</a>, the metadata object is publicly accessible, making it easy to add custom data throughout your checkout flow.
+Use the `metadata` object to store arbitrary values on a cart. As opposed to storing custom fields with the <a href="https://swell.store/docs/api/">backend API</a>, the metadata object is publicly accessible, making it easy to add custom data throughout your checkout flow. Note: the `metadata` object can also be queried and updated using the backend API.
 
 _Returns the updated cart object._
 
