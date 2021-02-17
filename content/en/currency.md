@@ -71,7 +71,7 @@ Example result:
 
 _Sets a browser cookie and updates the user's session and cart to the selected currency._
 
-In a multi-currency setup, call the `select()` method change settings used by `format()` to render money values.
+In a multi-currency setup, call the `select()` method to change settings used by `format()` to render money values.
 
 If a cart exists in the user's session, this method also updates the cart to reflect the user's currency preference.
 
@@ -98,5 +98,7 @@ await swell.currency.select('EUR')
 
 swell.currency.format(10) // => €8.874
 ```
+
+See our help center for more details on <a href="">multi-currency setup</a>.
 
 <br />
