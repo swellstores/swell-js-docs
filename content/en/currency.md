@@ -99,6 +99,6 @@ await swell.currency.select('EUR')
 swell.currency.format(10) // => €8.874
 ```
 
-See our help center for more details on <a href="">multi-currency setup</a>.
+See our help center for more details on <a href="https://support.swell.store/en/articles/4815655-multi-currency-setup">multi-currency setup</a>.
 
 <br />

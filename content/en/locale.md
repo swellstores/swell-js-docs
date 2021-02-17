@@ -60,7 +60,7 @@ In a multi-language setup, all methods available in this library will retrieve l
 
 When a customer account is created or updated in a storefront or during checkout, the selected locale will also be stored on the customer record and will be used to resolve localized content for email notifications and other offline communications.
 
-See our help center for more details on <a href="">multi-language setup</a>.
+See our help center for more details on <a href="https://support.swell.store/en/articles/4919430-multi-language-setup">multi-language setup</a>.
 
 
 
