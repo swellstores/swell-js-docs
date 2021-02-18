@@ -40,7 +40,7 @@ _Sets a browser cookie and updates the user's session and cart to the selected l
 
 In a multi-language setup, call the `select()` method to change settings used to retrieve all types of content (products, pages, etc.)
 
-If a cart exists in the user's session, this method also updates the cart to reflect the user's locale preference.!
+If a cart exists in the user's session, this method also updates the cart to reflect the user's locale preference.
 
 ```javascript
 await swell.locale.select('es')
@@ -51,12 +51,12 @@ await swell.locale.select('es')
 The store default or user selected locale is used automatically when retrieving content with this library.
 
 ```javascript
-await swell.locale.select('es') // optional, locale defaults to store setting
+await swell.locale.select('es') // optional
 
 await swell.products.list()
 ```
 
-The resulting content will have the same shape as non-localized values, with localized fields overwriting default values.
+Results will have the same shape as non-localized values, with localized fields overwriting default ones.
 
 ```json
 {
