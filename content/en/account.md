@@ -71,9 +71,9 @@ await swell.account.update({
 
 ### Send a password reset email
 
-Use to send a email to the customer with a link to reset their password. If the email address provided doesn't exist in the system, no email will be sent.
+Use the `recover` method to send an email to the customer with a link to reset their password. If the email address provided doesn't exist in the system, no email will be sent.
 
-_Returns a value indicating success in either case._
+_Returns a value indicating success._
 
 ```javascript
 await swell.account.recover({
@@ -81,14 +81,26 @@ await swell.account.recover({
 })
 ```
 
-### Reset the account password
+To customize the password reset URL sent to the customer in an email, pass the optional parameter `reset_url`, including a placeholder for the password reset key: `{reset_key}`. Swell will automatically generate and substitute the password reset key in the URL before sending an email.
+
+```javascript
+await swell.account.recover({
+  email: 'julia@example.com',
+  reset_url: 'https://example.com/password-reset?key={reset_key}'
+})
+```
+
+Note: password reset requests automatically expire after 24 hours.
+
+
+### Reset an account password
 
 Use to set the customer's new password. This requires the `reset_key` from the recovery email (see above). The password recovery email should link to your storefront with `reset_key` as a URL parameter that you can pass to this method.
 
 ```javascript
 await swell.account.recover({
-  reset_key: 'e42e66fc7e3f00e9e179w20ad1841146',
-  password: 'thenewpassword'
+  password: 'thenewpassword',
+  reset_key: 'e42e66fc7e3f00e9e179w20ad1841146'
 })
 ```
 
