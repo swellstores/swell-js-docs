@@ -193,6 +193,9 @@ await swell.cart.update({
 })
 ```
 
+> **Note:** In February 2019, PayPal introduced Smart Payment Buttons. Swell's integration uses a previous version named checkout.js, which continues to be supported by PayPal and Swell. <a href="https://www.notion.so/swellstores/Swell-PayPal-integration-examples-e693bcb3cdeb435f91488bb9ed671a3e">More details and examples</a>.
+
+
 ### Update cart metadata
 
 Use the `metadata` object to store arbitrary values on a cart. As opposed to storing custom fields with the <a href="https://swell.store/docs/api/">backend API</a>, the metadata object is publicly accessible, making it easy to add custom data throughout your checkout flow. Note: the `metadata` object can also be queried and updated using the backend API.
@@ -210,7 +213,18 @@ await swell.cart.update({
 })
 ```
 
-> **Note:** In February 2019, PayPal introduced Smart Payment Buttons. Swell's integration uses a previous version named checkout.js, which continues to be supported by PayPal and Swell. <a href="https://www.notion.so/swellstores/Swell-PayPal-integration-examples-e693bcb3cdeb435f91488bb9ed671a3e">More details and examples</a>.
+#### Add metadata to items
+
+In addition to the top level `metadata` field, you can also define metadata on each cart item.
+
+```javascript
+await swell.cart.updateItem('7d51p8ce72f5542e009fa4c8', {
+  quantity: 2,
+  metadata: {
+    any: 'value'
+  }
+})
+```
 
 ### Apply a coupon/gift card code
 
