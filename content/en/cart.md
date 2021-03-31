@@ -251,7 +251,7 @@ await swell.cart.applyGiftcard('BUYS SFX4 BMZH YY7N')
 Use to remove the coupon code from the cart, if one was applied.
 
 ```javascript
-await swell.cart.removeCouponCode()
+await swell.cart.removeCoupon()
 ```
 
 ### Remove a gift card
