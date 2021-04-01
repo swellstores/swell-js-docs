@@ -9,6 +9,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@babel/preset-env": "7.12.17",
     "@nuxt/content-theme-docs": "0.8.2",
     "nuxt": "2.14.7"
   }
