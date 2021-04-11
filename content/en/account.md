@@ -92,7 +92,6 @@ await swell.account.recover({
 
 Note: password reset requests automatically expire after 24 hours.
 
-
 ### Reset an account password
 
 Use to set the customer's new password. This requires the `reset_key` from the recovery email (see above). The password recovery email should link to your storefront with `reset_key` as a URL parameter that you can pass to this method.
@@ -122,6 +121,25 @@ _Returns the newly created address object._
 
 ```javascript
 await swell.account.createAddress({
+  name: 'Julia Sanchez',
+  address1: 'Apartment 16B',
+  address2: '2602 Pinewood Drive',
+  city: 'Jacksonville',
+  state: 'FL',
+  zip: '32216',
+  country: 'United States',
+  phone: '904-504-4760'
+})
+```
+
+### Update an address
+
+Use to update an existing address from the account by ID.
+
+_Returns the updated address object._
+
+```javascript
+await swell.account.updateAddress('5c15505200c7d14d851e510f', {
   name: 'Julia Sanchez',
   address1: 'Apartment 16B',
   address2: '2602 Pinewood Drive',
