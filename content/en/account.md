@@ -69,6 +69,35 @@ await swell.account.update({
 })
 ```
 
+### Update the account metadata
+
+Use the `metadata` object to store arbitrary values on an account. As opposed to storing custom fields with the <a href="https://swell.store/docs/api/">backend API</a>, the metadata object is publicly accessible, making it easy to add custom data throughout your customer flow. Note: the `metadata` object can also be queried and updated using the backend API.
+
+_Returns the updated account object._
+
+```javascript
+await swell.account.update({
+  metadata: {
+    any: 'value',
+    even: {
+      nested: true
+    }
+  }
+})
+```
+
+When updating nested arrays in metadata, you may notice the default behavior is to merge instead of replace values. To replace array values, use the `$set` operator to override the entire value.
+
+```javascript
+await swell.account.update({
+  $set: {
+    metadata: {
+      my_array: [ ... ]
+    }
+  }
+})
+```
+
 ### Send a password reset email
 
 Use the `recover` method to send an email to the customer with a link to reset their password. If the email address provided doesn't exist in the system, no email will be sent.

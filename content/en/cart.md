@@ -213,6 +213,18 @@ await swell.cart.update({
 })
 ```
 
+When updating nested arrays in metadata, you may notice the default behavior is to merge instead of replace values. To replace array values, use the `$set` operator to override the entire value.
+
+```javascript
+await swell.cart.update({
+  $set: {
+    metadata: {
+      my_array: [ ... ]
+    }
+  }
+})
+```
+
 #### Add metadata to items
 
 In addition to the top level `metadata` field, you can also define metadata on each cart item.
