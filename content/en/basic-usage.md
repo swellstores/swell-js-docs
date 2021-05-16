@@ -15,7 +15,7 @@ swell.init('my-store', 'pk_md0JkpLnp9gBjkQ085oiebb0XBuwqZX9')
 
 // Now you can use any method
 await swell.products.list({
-  category: 't-shirts',
+  categories: 't-shirts',
   limit: 25,
   page: 1
 })

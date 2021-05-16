@@ -34,7 +34,7 @@ _Returns products in a specific category, with offset pagination using `limit` a
 
 ```javascript
 await swell.products.list({
-  category: 't-shirts', // Slug or ID
+  categories: 't-shirts', // Slug or ID
   limit: 25, // Max. 100
   page: 1
 })
@@ -94,7 +94,6 @@ const products = await swell.products.list(...)
 
 await swell.products.filters(products)
 ```
-
 
 <alert type="success">
 A filter list is based on the set of input products, therefore your page should retrieve the full set of relevant products before <a href="#apply-filters">applying filters</a>.
