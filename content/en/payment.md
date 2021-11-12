@@ -171,6 +171,7 @@ swell.payment.createElements({
   card: {
     ...
   },
+  // ideal: { ... }
 });
 
 const form = document.getElementById('payment-form');
@@ -189,15 +190,89 @@ form.addEventListener('submit', function(event) {
       }
     }
     // ideal: { onError: (err) => {}, ...}
-    // klarna: { onError: (err) => {}, ...}
-    // bancontact: { onError: (err) => {}, ...}
   });
 
   hideLoading();
 });
 ```
 
-Note: Some payment methods such as `ideal`, `klarna`, `bancontact` automatically redirect the user to the payment page to authorize the payment.
+Note: Some payment methods such as `ideal`, automatically redirect the user to the payment page to authorize the payment.
+
+## Payment initiation
+
+Payment methods such as `Klarna`, `Bancontact` or gateways `Quickpay`, `Paysafecard` do not require special forms to enter payment information. Instead, you need to redirect the customer to a third-party page to initiate a payment. `swell.payment.tokenize()` will automatically redirect the customer to the gateway page for entering payment details.
+
+Note: See [Handling redirect actions](#handling-redirect-actions) section for handling customer redirects to your site.
+
+### Stripe
+
+- Klarna
+
+```javascript
+import swell from 'swell-js'
+
+swell.init('my-store', 'pk_...')
+
+await swell.payment.tokenize({
+  klarna: {
+    onError: err => {
+      // inform the customer there was an error
+    }
+  }
+})
+```
+
+- Bancontact
+
+```javascript
+import swell from 'swell-js'
+
+swell.init('my-store', 'pk_...')
+
+await swell.payment.tokenize({
+  bancontact: {
+    onError: err => {
+      // inform the customer there was an error
+    }
+  }
+})
+```
+
+### Quickpay
+
+- Card
+
+```javascript
+import swell from 'swell-js'
+
+swell.init('my-store', 'pk_...')
+
+swell.payment.tokenize({
+  card: {
+    onError: error => {
+      // inform the customer there was an error
+    }
+  }
+})
+```
+
+### Paysafecrd
+
+- Card
+
+```javascript
+import swell from 'swell-js'
+
+swell.init('my-store', 'pk_...')
+
+swell.payment.tokenize({
+  card: {
+    onError: error => {
+      // inform the customer there was an error
+    }
+  }
+})
+```
 
 ## Handling redirect actions
 
@@ -327,6 +402,52 @@ const params = await swell.cart.update({
 await swell.cart.submitOrder()
 ```
 
+### Quickpay
+
+- Card
+
+```javascript
+import swell from 'swell-js'
+
+swell.init('my-store', 'pk_...')
+
+await swell.payment.handleRedirect({
+  card: {
+    onSuccess: result => {
+      // optional, called on successful redirect
+    },
+    onError: error => {
+      // optional, called on redirect error
+    }
+  }
+})
+
+await swell.cart.submitOrder()
+```
+
+### Paysafecard
+
+- Card
+
+```javascript
+import swell from 'swell-js'
+
+swell.init('my-store', 'pk_...')
+
+await swell.payment.handleRedirect({
+  card: {
+    onSuccess: result => {
+      // optional, called on successful redirect
+    },
+    onError: error => {
+      // optional, called on redirect error
+    }
+  }
+})
+
+await swell.cart.submitOrder()
+```
+
 ## Direct credit card tokenization
 
 If a <a href="payment#payment-elements">payment element</a> isn't available for your credit card processor, you can tokenize credit card information directly.
@@ -439,6 +560,69 @@ await swell.cart.update({
   billing: {
     card: response
   }
+})
+```
+
+### Quickpay
+
+To create a QuickPay card, you need to redirect the customer to a third-party page for entering card data:
+
+```js
+import swell from 'swell-js'
+
+swell.init('my-store', 'pk_...')
+
+const returnUrl = window.location.origin + window.location.pathname
+const result = await swell.payment.authorizeGateway({
+  gateway: 'quickpay',
+  params: {
+    action: 'create',
+    continueurl: `${returnUrl}?gateway=quickpay&redirect_status=succeeded`,
+    cancelurl: `${returnUrl}?gateway=quickpay&redirect_status=canceled`
+  }
+})
+
+if (result && result.url) {
+  window.location.replace(result.url)
+}
+```
+
+After the customer is redirected back to your site, you need to get the card details and save it:
+
+```js
+import swell from 'swell-js'
+
+swell.init('my-store', 'pk_...')
+
+const { redirect_status, card_id } = queryParams
+if (redirect_status !== 'succeeded') {
+  // handle cancellation
+  return
+}
+
+const card = await swell.payment.authorizeGateway({
+  gateway: 'quickpay',
+  params: {
+    action: 'get',
+    id: card_id
+  }
+})
+
+if (card.error) {
+  // handle error
+  return
+}
+
+await swell.cart.update({
+  billing: {
+    card
+  }
+})
+
+// or save the card to the customer
+
+await swell.account.createCard({
+  ...card
 })
 ```
 
